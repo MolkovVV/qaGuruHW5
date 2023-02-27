@@ -1,7 +1,6 @@
 package guru.qa;
 
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -25,7 +24,7 @@ public class DragAndDropTest{
     @Test
     public void rectangleShouldBeRemoveWithActions(){
         open("drag_and_drop");
-        Selenide.actions().clickAndHold(element("#column-a")).moveToElement(element("#column-b")).click();
+        actions().clickAndHold(element("#column-a")).moveToElement(element("#column-b"));
         $("#column-a header").shouldHave(text("b"));
         $("#column-b header").shouldHave(text("a"));
     }
